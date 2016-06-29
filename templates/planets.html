@@ -1,0 +1,45 @@
+<!-- style "opacity" can removed by ng-show="galaxy.load". I use opacity for smooth transition. -->
+<section class="main-body">
+  <div class="container" ng-controller="planetsController as galaxy">
+    <div class="loading" ng-show="galaxy.load"></div>    
+    <div class="fade-in" style="opacity: {{galaxy.opacity}}">
+      <div class="input-group">
+        <input type="text" class="planet_search" placeholder="Search Planet" name="searchbox" ng-model="search" />
+      </div>    
+
+      <div class="row">
+        <!-- <article> for SEO friendly -->
+        <article ng-repeat="planet in galaxy.items" class="col-std-3 col-med-6">
+          <div class="planets">
+            <!-- planets.indexOf(planet) -->
+            <a href="#/planet/{{planet.name.toLowerCase()}}"> 
+              <figure class="picture-grid" ng-mouseover="style = picture_mouseaction(1.5)" ng-mouseleave="style = picture_mouseaction(1)">
+                <img ng-src="{{planet.images}}" alt="{{planet.name}}" style="transform: scale({{style.scale}})" />
+              </figure>
+            </a>
+            <h4>{{planet.name}}</h4>
+          </div>
+        </article>
+      </div>
+
+      <!-- pager -->
+      <ul ng-if="galaxy.pager.pages.length" class="pagination">
+        <li>
+          <a ng-click="galaxy.setPage(1)" ng-class="{disabled: galaxy.pager.currentPage === 1}"><< </a>
+        </li>
+        <li>
+          <a ng-click="galaxy.setPage(galaxy.pager.currentPage - 1)" ng-class="{disabled: galaxy.pager.currentPage === 1}">< </a>
+        </li>
+        <li ng-repeat="page in galaxy.pager.pages">
+          <a ng-click="galaxy.setPage(page)" ng-class="{active: galaxy.pager.currentPage === page}">{{page}}</a>
+        </li>               
+        <li>
+          <a ng-click="galaxy.setPage(galaxy.pager.currentPage + 1)" ng-class="{disabled: galaxy.pager.currentPage === galaxy.pager.totalPages}"> ></a>
+        </li>
+        <li>
+          <a ng-click="galaxy.setPage(galaxy.pager.totalPages)" ng-class="{disabled: galaxy.pager.currentPage === galaxy.pager.totalPages}"> >></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>

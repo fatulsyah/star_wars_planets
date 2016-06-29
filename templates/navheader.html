@@ -1,0 +1,19 @@
+<nav id="main">
+  <div class="container">      
+    <ul id="logo">
+      <li><h1><a href="#">Star Wars Planets</a></h1></li>
+    </ul>
+    <ul class="menu">
+      <li><a href="#/home">Home</a></li>
+      <li><a href="#/planets">Planets</a></li>
+      <li><a href="#/aboutme">About Me</a></li>
+    </ul>
+    
+    <div id="toogle_menu" ng-click="toogle()"><div class="grid_icon"></div></div>
+    <ul class="mobile_menu" ng-click="toogle()" style="left: {{leftmenu}}">
+      <li><a href="#/home">Home</a></li>
+      <li><a href="#/planets">Planets</a></li>
+      <li><a href="#/aboutme">About Me</a></li>
+    </ul>
+  </div>
+</nav>

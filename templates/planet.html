@@ -1,0 +1,59 @@
+<section class="main-body">
+	<div class="container">
+		<div class="loading" ng-show="load"></div>
+		<div class="fade-in" style="opacity: {{opacity}}">
+		  <h1 class="single-title">{{planet.name}}</h1>
+		  <div class="picture-single">
+		  	<button class="bold like" ng-click="planet.likes = planet.likes + 1">Like: {{planet.likes}}</button>
+		    <figure><img ng-src="{{planet.images}}" alt="{{planet.name}}" /></figure>
+
+			  <div class="desc">
+			  	<div class="wrap">
+			  		<table>
+			  			<tr>
+			  				<td><span class="bold title">Rotation Period</span></td>
+			  				<td>:</td>
+			  				<td><span ng-class="unknown(planet.rotation_period)">{{planet.rotation_period}}</span> hours</td>
+			  			</tr>
+			  			<tr>
+			  				<td><span class="bold title">Orbital Period</span></td>
+			  				<td>:</td>
+			  				<td><span ng-class="unknown(planet.orbital_period)">{{planet.orbital_period}}</span> days</td>
+			  			</tr>
+			  			<tr>
+			  				<td><span class="bold title">Diameter</span></td>
+			  				<td>:</td>
+			  				<td><span ng-class="unknown(planet.diameter)">{{planet.diameter}}</span> km</td>
+			  			</tr>
+			  			<tr>
+			  				<td><span class="bold title">Climate</span></td>
+			  				<td>:</td>
+			  				<td><span ng-class="unknown(planet.climate)">{{planet.climate}}</span></td>
+			  			</tr>
+			  			<tr>
+			  				<td><span class="bold title">Gravity</span></td>
+			  				<td>:</td>
+			  				<td><span ng-class="unknown(planet.gravity)">{{planet.gravity}}</span> m/s<sup>2</sup></td>
+			  			</tr>
+			  			<tr>
+			  				<td><span class="bold title">Terrain</span></td>
+			  				<td>:</td>
+			  				<td><span ng-class="unknown(planet.terrain)">{{planet.terrain}}</td>
+			  			</tr>
+			  			<tr>
+			  				<td><span class="bold title">Surface Water</span></td>
+			  				<td>:</td>
+			  				<td><span ng-class="unknown(planet.surface_water)">{{planet.surface_water}}</span>%</td>
+			  			</tr>
+			  			<tr>
+			  				<td><span class="bold title">Population</span></td>
+			  				<td>:</td>
+			  				<td><span ng-class="unknown_number(planet.population)">{{planet.population | number}}</span></td>
+			  			</tr>
+			  		</table>
+				  </div>
+			  </div>	
+		  </div>	  
+	  </div>
+	</div>
+</section>
